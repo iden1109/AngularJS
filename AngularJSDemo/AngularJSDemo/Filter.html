@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Scripts/angular.js"></script>
+</head>
+<body>
+    <div ng-app="app" ng-controller="Ctrl" class="row">
+        <h2>格式轉換</h2>
+        <div class="col-md-6">
+            <table>
+                <tr>
+                    <td>currency：</td>
+                    <td>{{price | currency:"$NTD ":3}}</td>
+                </tr>
+                <tr>
+                    <td>number：</td>
+                    <td>{{price | number :4}}</td>
+                </tr>
+                <tr>
+                    <td>date：</td>
+                    <td>{{date | date:"dd/MM/yyyy"}}</td>
+                </tr>
+                <tr>
+                    <td>lowercase：</td>
+                    <td>{{str | lowercase}}</td>
+                </tr>
+                <tr>
+                    <td>Uppercase：</td>
+                    <td>{{str | uppercase}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h2>資料過濾</h2>
+            <table>
+                <tr>
+                    <td>limitTo：</td>
+                    <td>
+                        <input type="number" ng-init="limit=10" ng-model="limit" />
+                        {{arry |limitTo: limit}}
+                    </td>
+                </tr>
+            </table>
+            <fieldset>
+                <legend>OrderBy：</legend>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <a href="" ng-click="orderByField='name'; reverseSort = !reverseSort">
+                                    Name<span ng-show="orderByField == 'name'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="" ng-click="orderByField='company'; reverseSort = !reverseSort">
+                                    Company <span ng-show="orderByField == 'company'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="" ng-click="orderByField='age'; reverseSort = !reverseSort">
+                                    Age <span ng-show="orderByField == 'age'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+                                </a>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="member in members|orderBy:orderByField:reverseSort">
+                            <td>{{member.name}}</td>
+                            <td>{{member.company}}</td>
+                            <td>{{member.age}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>filter:</legend>
+                <span>
+                    <input type="text" ng-model="searchText" />
+                </span>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Company</th>
+                        <th>Age</th>
+                    </tr>
+                    <tr ng-repeat="member in members|filter:searchText">
+                        <td>{{member.name}}</td>
+                        <td>{{member.company}}</td>
+                        <td>{{member.age}}</td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+    var app = angular.module("app", []).controller("Ctrl", ["$scope", "$filter", "$http", function ($scope, $filter, $http) {
+        $scope.price = 17500.34512;
+        $scope.arry = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        $scope.date = "2015-05-13"
+        $scope.str = "Hello World"
+        $http.get("Content/cjFnjgkWGa.json").success(function (data, status, headers, config) {
+            $scope.items = data;
+        }).error(function (data, status, headers, config) {
+            alert("someting goes wrong");
+        });
+
+        //==========orderBy Grid===============
+        $scope.orderByField = 'name';
+        $scope.reverseSort = false;
+        $http.get("Content/member.json").success(function (data, status, headers, config) {
+            $scope.members = data;
+        }).error(function (data, status, headers, config) {
+            alert("someting goes wrong");
+        });
+        
+    }])
+</script>
+

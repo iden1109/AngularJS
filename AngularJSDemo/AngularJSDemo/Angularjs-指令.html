@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/Directive/myDirective.js"></script>
+</head>
+<body style="font-size:x-large;height:1500px">
+    <div  ng-app="app" ng-controller="Ctrl" class="row">
+        <div my-directive data="name"></div>
+        <div>
+            ng-change：
+            <input class="form-control" ng-model="name"ng-model-option="{}" ng-change="whenChange()" />
+            <button type="button" ng-click="changeName()">改成 Tina</button>
+        </div>
+        <hr />
+       <div>
+           ng-checked：
+           <div>
+               <div>全選<input type="checkbox" ng-model="master" /></div>
+               Mike<input type="checkbox" ng-checked="master" />
+               Jed<input type="checkbox" ng-checked="master" />
+               Dark<input type="checkbox" ng-checked="master" />
+           </div>
+       </div>
+        <hr />
+        <div>
+            ng-click：
+            <button ng-click="showName()">請點我</button>
+            {{myname}}
+        </div>
+        <hr />
+        <div>
+            ng-init：
+            <!--<input ng-init="player='Michael Jordan'" ng-model="player" />-->
+            <input ng-init="init()" ng-model="player" />
+        </div>
+        <hr />
+       <div>
+           ng-repeat：
+           <ul>
+               <li ng-repeat="item in items">
+                   {{item.name}}
+               </li>
+           </ul>
+       </div>
+        <hr />
+        <div>
+            ng-show：
+            國外差旅<input type="checkbox" ng-model="select" />
+            <ul ng-show="select">
+                <li><input type="checkbox" />中華航空</li>
+                <li><input type="checkbox" />國泰航空</li>
+                <li><input type="checkbox" />復興航空</li>
+                <li><input type="checkbox" />長榮航空</li>
+            </ul>
+        </div>
+        <hr />
+        <div>
+            ng-switch：
+            選擇人物 <select ng-model="selection" ng-options="item for item in list" /></select>
+          
+            <ul ng-switch="selection">
+                <li ng-switch-when="Michael Jordan"> 籃球之神</li>
+                <li ng-switch-when="Mike Tyson"> 前世界拳王</li>
+                <li ng-switch-when="Matthew David McConaughey">86屆 奧斯卡影帝</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var app = angular.module("app", ['myDirective.main']).controller("Ctrl", function ($scope, $http) {
+        $scope.name = "Mike";
+        //ng-change
+        $scope.whenChange = function () {
+            alert("ng-change trigger");
+        }
+        $scope.changeName = function () {
+            $scope.name = "Tina";
+        };
+        //ng-click
+        $scope.showName = function () {
+            $scope.myname="Hi I am Mike !"
+        }
+
+        //$scope.$watch("name", function (newVal, oldVal) {
+        //    if (newVal != oldVal) {
+        //        alert("$watch trigger);
+        //    }
+        //})
+
+        //ng-init方法
+        $scope.init = function () {
+            $scope.player = "Mike Tyson";
+        };
+
+        $scope.list = ['Michael Jordan', 'Mike Tyson', 'Matthew David McConaughey'];
+
+
+        //獲取資料
+        $http.get("Content/cjFnjgkWGa.json").
+             success(function (data, status, headers, config) {
+                 $scope.items = data;
+             }).error(function (data, status, headers, config) {
+                 alert("someting goes wrong");
+             });
+    })
+</script>

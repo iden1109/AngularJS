@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Scripts/angular.js"></script>
+</head>
+<body>
+    <div ng-app="app" ng-controller="Ctrl">
+        <form id="myform">
+            <br />
+
+            <div class="row">
+                <div>
+                    價格:
+                    <input ng-model="price" name="money" />
+
+                </div>
+                <div>
+                    數量:
+                    <input type="number" ng-model="num" min="0" max="10" />
+                </div>
+                <div>
+                    總價:
+                    <p>{{sum() | currency}}</p>
+                </div>
+
+                <button type="button" ng-disabled="check()" ng-click="buy(total)">購買</button>
+            </div>
+        </form>
+        </div>
+</body>
+</html>
+<script>
+    var app = angular.module("app", [])
+        .controller("Ctrl", ["$scope", "$http", "$filter", function ($scope, $http, $filter) {
+            //加總金額
+            $scope.sum = function () {
+                $scope.total = $scope.num * $scope.price;
+                return $scope.total
+            };
+            //檢查是否可修改
+            $scope.check = function () {
+                var reg = /^\d+(\.\d+)?$/; //非負浮點數
+                if (reg.test($scope.total)) {
+
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            //購買動作
+            $scope.buy = function (val) {
+                var money = $filter('currency')(val);
+                alert("購買成功，金額為:" + money);
+            };
+        }])
+
+</script>
+
+

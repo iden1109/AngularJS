@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <div>
+        <form>
+            <div>
+                <input type="button" value="Test" id="testBtn" />
+            </div>
+        </form>
+    </div>
+    <script src="Scripts/jquery-2.1.3.min.js"></script>
+    <script src="Scripts/jquery-service-client/jquery-service-client.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#testBtn').click(function () {
+                var client = new jQueryBackendService('http://localhost:59608/api/');
+                client.executeCommand(
+                   "BmiLibrary",
+                   "BmiLibrary",
+                   "Service",
+                   "CalcBMI",
+                   "70,180",
+                   function (data) {
+                       alert(data);
+                   },
+                   function (err) {
+                       alert(err.message);
+                   });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BmiLibrary", "BmiLibrary\BmiLibrary.csproj", "{83C84647-60DE-4697-A33C-333ECF2A0D84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.BmiLibrary", "UnitTest.BmiLibrary\UnitTest.BmiLibrary\UnitTest.BmiLibrary.csproj", "{F9227199-6D81-47F2-B8D5-25045F242F17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHost", "WebHost\WebHost.csproj", "{5831C08F-1FD2-4354-88C2-AB190F2A88C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{9A7F6B09-0E75-443C-B7D3-A4C6F67D9A95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIForm", "UIForm\UIForm.csproj", "{0200AAAD-B2C4-434D-BB97-7AD82C1AB870}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{F3F20C31-085B-43DF-8B48-1561265F2769}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83C84647-60DE-4697-A33C-333ECF2A0D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83C84647-60DE-4697-A33C-333ECF2A0D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83C84647-60DE-4697-A33C-333ECF2A0D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83C84647-60DE-4697-A33C-333ECF2A0D84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9227199-6D81-47F2-B8D5-25045F242F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9227199-6D81-47F2-B8D5-25045F242F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9227199-6D81-47F2-B8D5-25045F242F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9227199-6D81-47F2-B8D5-25045F242F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5831C08F-1FD2-4354-88C2-AB190F2A88C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5831C08F-1FD2-4354-88C2-AB190F2A88C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5831C08F-1FD2-4354-88C2-AB190F2A88C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5831C08F-1FD2-4354-88C2-AB190F2A88C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7F6B09-0E75-443C-B7D3-A4C6F67D9A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7F6B09-0E75-443C-B7D3-A4C6F67D9A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7F6B09-0E75-443C-B7D3-A4C6F67D9A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7F6B09-0E75-443C-B7D3-A4C6F67D9A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0200AAAD-B2C4-434D-BB97-7AD82C1AB870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0200AAAD-B2C4-434D-BB97-7AD82C1AB870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0200AAAD-B2C4-434D-BB97-7AD82C1AB870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0200AAAD-B2C4-434D-BB97-7AD82C1AB870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3F20C31-085B-43DF-8B48-1561265F2769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3F20C31-085B-43DF-8B48-1561265F2769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3F20C31-085B-43DF-8B48-1561265F2769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3F20C31-085B-43DF-8B48-1561265F2769}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
+	EndGlobalSection
+EndGlobal
